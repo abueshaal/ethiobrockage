@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethio Stock & Property Broker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Ethio Stock & Property Broker</h1>
+        <p>Buy & Sell Properties, Stocks, and More</p>
+    </header>
+
+    <section>
+        <h2>Our Services</h2>
+        <ul>
+            <li>Luxury House Listings</li>
+            <li>Stock Trading & Investment</li>
+            <li>Real Estate Consultation</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>Contact us at: <a href="mailto:zaminwater@gmail.com">zaminwater@gmail.com</a></p>
+    </footer>
+</body>
+</html>
+git add index.html
+git commit -m "Added index.html file"
+git push origin main
