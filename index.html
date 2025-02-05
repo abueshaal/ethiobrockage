@@ -1,56 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><link rel="stylesheet" href="styles.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethio Stock & Property Broker</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            background-color: #f5f5f5;
-        }
-        header {
-            background-color: #004080;
-            color: white;
-            padding: 20px;
-        }
-        section {
-            margin: 20px;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        footer {
-            background-color: #004080;
-            color: white;
-            padding: 10px;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ethio Stock & Property Broker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background-color: #f5f5f5;
+    }
+    header {
+      background-color: #004080;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #007BFF;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 10px;
+      text-decoration: none;
+    }
+    section {
+      margin: 20px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    footer {
+      background-color: #004080;
+      color: white;
+      padding: 10px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+    /* Styling for filters, order form, products, and rental listings */
+    #filters, #order-form, #products, #house-rent, #car-rent, #used-cars {
+      text-align: left;
+      max-width: 800px;
+      margin: 0 auto 20px auto;
+    }
+    #filters form, #order-form form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      align-items: center;
+    }
+    #filters label, #order-form label {
+      flex-basis: 100px;
+    }
+    #filters select, #filters input, #order-form input, #order-form textarea {
+      flex: 1;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    #filters button, #order-form button {
+      padding: 8px 15px;
+      border: none;
+      background-color: #004080;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .product, .rental-item {
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .rental-item img {
+      max-width: 100%;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    #price-output {
+      font-weight: bold;
+      margin-left: 10px;
+    }
+    .item-details p {
+      margin: 5px 0;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Ethio Stock & Property Broker</h1>
-        <p>Buy & Sell Properties, Stocks, and More</p>
-    </header>
+  <!-- Header -->
+  <header>
+    <h1>Ethio Stock & Property Broker</h1>
+    <p>Buy & Sell Properties, Stocks, and More</p>
+  </header>
 
-    <section>
-        <h2>Our Services</h2>
-        <ul>
-            <li>Luxury House Listings</li>
-            <li>Stock Trading & Investment</li>
-            <li>Real Estate Consultation</li>
-        </ul>
-    </section>
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="#services">Our Services</a>
+    <a href="#about-us">About Us</a>
+    <a href="#filters">Filters</a>
+    <a href="#order-form">Place Order</a>
+    <a href="#products">Products</a>
+    <a href="#house-rent">House Rent</a>
+    <a href="#car-rent">Car Rent</a>
+    <a href="#used-cars">Used Cars</a>
+  </nav>
 
-    <footer>
-        <p>Contact us at: <a href="mailto:zaminwater@gmail.com">zaminwater@gmail.com</a></p>
-    </footer>
+  <!-- Our Services Section -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <ul>
+      <li>Luxury House Listings</li>
+      <li>Stock Trading & Investment</li>
+      <li>Real Estate Consultation</li>
+    </ul>
+  </section>
+
+  <!-- About Us Section with Profile -->
+  <section id="about-us">
+    <h2>About Us</h2>
+    <p>Ethio Stock & Property Broker provides consultancy and brokerage services for property, stock trading, and more. We help you buy, sell, or invest in real estate and financial markets.</p>
+    <h3>About the CEO</h3>
+    <p>Amin Alemayhu Tefera – With over 6 years of experience in banking, insurance, and brokerage, I lead the company to deliver exceptional service and expert advice in the real estate and financial sectors.</p>
+  </section>
+
+  <!-- Filter Section -->
+  <section id="filters">
+    <h2>Filter Products</h2>
+    <form id="filter-form">
+      <div>
+        <label for="year">Production Year</label>
+        <select id="year" name="year">
+          <option value="">Any Year</option>
+          <option value="2020">2020</option>
+          <option value="2021">2021</option>
+          <option value="2022">2022</option>
+        </select>
+      </div>
+      <div>
+        <label for="branch">Branch</label>
+        <select id="branch" name="branch">
+          <option value="">Any Branch</option>
+          <option value="Toyota">Toyota</option>
+          <option value="BMW">BMW</option>
+          <option value="Honda">Honda</option>
+        </select>
+      </div>
+      <div>
+        <label for="city">City</label>
+        <select id="city" name="city">
+          <option value="">Any City</option>
+          <option value="Addis Ababa">Addis Ababa</option>
+          <option value="Dire Dawa">Dire Dawa</option>
+        </select>
+      </div>
+      <div>
+        <label for="price">Price Range</label>
+        <input type="range" id="price" name="price" min="0" max="1000000" step="50000">
+        <output id="price-output">0</output>
+      </div>
+      <div style="flex-basis: 100%;">
+        <button type="button" onclick="applyFilters()">Apply Filters</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Order Form Section -->
+  <section id="order-form">
+    <h2>Place an Order</h2>
+    <form action="order-confirmation.html" method="post">
+      <div>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div>
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div>
+        <label for="product">Product/Service</label>
+        <input type="text" id="product" name="product" required>
+      </div>
+      <div>
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" name="quantity" min="1">
+      </div>
+      <div>
+        <label for="address">Delivery Address</label>
+        <textarea id="address" name="address"></textarea>
+      </div>
+      <div style="flex-basis: 100%;">
+        <button type="submit">Submit Order</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Products List Section -->
+  <section id="products">
+    <h2>Our Products</h2>
+    <!-- Example Product 1 -->
+    <div class="product" data-year="2020" data-branch="Toyota" data-city="Addis Ababa" data-price="500000">
+      <h3>Product 1</h3>
+      <p>Price: $500,000</p>
+      <p>Branch: Toyota</p>
+      <p>City: Addis Ababa</p>
+    </div>
+    <!-- Example Product 2 -->
+    <div class="product" data-year="2021" data-branch="BMW" data-city="Dire Dawa" data-price="750000">
+      <h3>Product 2</h3>
+      <p>Price: $750,000</p>
+      <p>Branch: BMW</p>
+      <p>City: Dire Dawa</p>
+    </div>
+    <!-- Example Product 3 -->
+    <div class="product" data-year="2022" data-branch="Honda" data-city="Addis Ababa" data-price="600000">
+      <h3>Product 3</h3>
+      <p>Price: $600,000</p>
+      <p>Branch: Honda</p>
+      <p>City: Addis Ababa</p>
+    </div>
+  </section>
+
+  <!-- House For Rent Section -->
+  <section id="house-rent">
+    <h2>House For Rent</h2>
+    <!-- Sample House Listing -->
+    <div class="rental-item">
+      <img src="https://via.placeholder.com/300x200" alt="House for Rent">
+      <div class="item-details">
+        <h3>Luxury House</h3>
+        <p>Price: $1,200/month</p>
+        <p>Description: Spacious 4-bedroom house with modern amenities.</p>
+        <p>Location: Bole, Addis Ababa</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Car For Rent Section -->
+  <section id="car-rent">
+    <h2>Car For Rent</h2>
+    <!-- Sample Car Listing -->
+    <div class="rental-item">
+      <img src="https://via.placeholder.com/300x200" alt="Car for Rent">
+      <div class="item-details">
+        <h3>Economy Car</h3>
+        <p>Price: $80/day</p>
+        <p>Description: Compact car ideal for city driving.</p>
+        <p>Location: Meskel Square, Addis Ababa</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Used Cars Section -->
+  <section id="used-cars">
+    <h2>Used Cars</h2>
+    <!-- Sample Used Car Listing -->
+    <div class="rental-item">
+      <img src="https://via.placeholder.com/300x200" alt="Used Car">
+      <div class="item-details">
+        <h3>Used Sedan Model X</h3>
+        <p>Price: $12,000</p>
+        <p>Model: 2018, Well-maintained with low mileage.</p>
+        <p>Location: Merkato, Addis Ababa</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer with Contact Info -->
+  <footer>
+    <p>
+      Contact us at: 
+      <a href="mailto:zaminwater@gmail.com" style="color: white;">zaminwater@gmail.com</a> 
+      | Phone: <a href="tel:+1234567890" style="color: white;">+1234567890</a>
+    </p>
+  </footer>
+
+  <!-- JavaScript for Filtering -->
+  <script>
+    function applyFilters() {
+      let year = document.getElementById("year").value;
+      let branch = document.getElementById("branch").value;
+      let city = document.getElementById("city").value;
+      let price = document.getElementById("price").value;
+      
+      let products = document.querySelectorAll(".product");
+      products.forEach(function(product) {
+        let productYear = product.getAttribute("data-year");
+        let productBranch = product.getAttribute("data-branch");
+        let productCity = product.getAttribute("data-city");
+        let productPrice = parseInt(product.getAttribute("data-price"));
+        
+        let match = true;
+        if (year && productYear !== year) match = false;
+        if (branch && productBranch !== branch) match = false;
+        if (city && productCity !== city) match = false;
+        if (price && productPrice > price) match = false;
+        
+        product.style.display = match ? "block" : "none";
+      });
+    }
+    
+    // Update price output on slider move
+    document.getElementById("price").addEventListener("input", function() {
+      document.getElementById("price-output").textContent = this.value;
+    });
+  </script>
 </body>
 </html>
