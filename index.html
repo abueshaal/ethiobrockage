@@ -90,6 +90,28 @@
     .item-details p {
       margin: 5px 0;
     }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav {
+        text-align: left;
+        padding-left: 15px;
+      }
+      nav a {
+        display: block;
+        padding: 10px;
+      }
+      section {
+        margin: 10px;
+        padding: 15px;
+      }
+      #filters, #order-form {
+        max-width: 100%;
+      }
+      .product, .rental-item {
+        padding: 15px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -245,70 +267,4 @@
   <section id="car-rent">
     <h2>Car For Rent</h2>
     <!-- Sample Car Listing -->
-    <div class="rental-item">
-      <img src="https://via.placeholder.com/300x200" alt="Car for Rent">
-      <div class="item-details">
-        <h3>Economy Car</h3>
-        <p>Price: $80/day</p>
-        <p>Description: Compact car ideal for city driving.</p>
-        <p>Location: Meskel Square, Addis Ababa</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Used Cars Section -->
-  <section id="used-cars">
-    <h2>Used Cars</h2>
-    <!-- Sample Used Car Listing -->
-    <div class="rental-item">
-      <img src="https://via.placeholder.com/300x200" alt="Used Car">
-      <div class="item-details">
-        <h3>Used Sedan Model X</h3>
-        <p>Price: $12,000</p>
-        <p>Model: 2018, Well-maintained with low mileage.</p>
-        <p>Location: Merkato, Addis Ababa</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer with Contact Info -->
-  <footer>
-    <p>
-      Contact us at: 
-      <a href="mailto:zaminwater@gmail.com" style="color: white;">zaminwater@gmail.com</a> 
-      | Phone: <a href="tel:+1234567890" style="color: white;">+1234567890</a>
-    </p>
-  </footer>
-
-  <!-- JavaScript for Filtering -->
-  <script>
-    function applyFilters() {
-      let year = document.getElementById("year").value;
-      let branch = document.getElementById("branch").value;
-      let city = document.getElementById("city").value;
-      let price = document.getElementById("price").value;
-      
-      let products = document.querySelectorAll(".product");
-      products.forEach(function(product) {
-        let productYear = product.getAttribute("data-year");
-        let productBranch = product.getAttribute("data-branch");
-        let productCity = product.getAttribute("data-city");
-        let productPrice = parseInt(product.getAttribute("data-price"));
-        
-        let match = true;
-        if (year && productYear !== year) match = false;
-        if (branch && productBranch !== branch) match = false;
-        if (city && productCity !== city) match = false;
-        if (price && productPrice > price) match = false;
-        
-        product.style.display = match ? "block" : "none";
-      });
-    }
-    
-    // Update price output on slider move
-    document.getElementById("price").addEventListener("input", function() {
-      document.getElementById("price-output").textContent = this.value;
-    });
-  </script>
-</body>
-</html>
+    <div
